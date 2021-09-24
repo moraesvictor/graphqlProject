@@ -21,6 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@mikro-orm/core");
 const C = __importStar(require("./constants"));
+const Post_1 = require("./entities/Post");
 const main = async () => {
     const orm = await core_1.MikroORM.init({
         entities: [],
@@ -28,6 +29,7 @@ const main = async () => {
         type: 'postgresql',
         debug: !C.__prod__
     });
+    orm.em.create(Post_1.Post, { title: 'My first post ' });
 };
 main();
 //# sourceMappingURL=index.js.map
